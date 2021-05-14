@@ -1,4 +1,4 @@
-{% set version = "1.1.1" %}
+{% set version = "2.0.0" %}
 
 package:
   name: markupsafe
@@ -6,14 +6,15 @@ package:
 
 source:
   url: https://pypi.io/packages/source/M/MarkupSafe/MarkupSafe-{{ version }}.tar.gz
-  sha256: 29872e92839765e546828bb7754a68c418d927cd064fd4708fab9fe9c8bb116b
+  sha256: 4fae0677f712ee090721d8b17f412f1cbceefbf0dc180fe91bab3232f38b4527
 
 build:
   number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   build:
+    - python                                 # [build_platform != target_platform]
     - {{ compiler('c') }}
   host:
     - python
@@ -31,13 +32,6 @@ about:
   license_family: BSD
   license_file: LICENSE.rst
   summary: A Python module that implements the jinja2.Markup string
-  description: |
-    MarkupSafe is a library for Python that implements a unicode string that
-    is aware of HTML escaping rules and can be used to implement automatic
-    string escaping. It is used by Jinja 2, the Mako templating engine, the
-    Pylons web framework and many more.
-  doc_url: https://pypi.python.org/pypi/MarkupSafe
-  doc_source_url: https://github.com/pallets/markupsafe/blob/master/README.rst
   dev_url: https://github.com/pallets/markupsafe
 
 extra:
