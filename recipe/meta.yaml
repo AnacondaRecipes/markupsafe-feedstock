@@ -33,9 +33,9 @@ test:
     - pip
   commands:
     - pip check
-  downstreams:
-    - jinja2
+  downstreams:  # [not win]
     # CI issues with testing downstream package astropy
+    - jinja2  # [not win]
     - astropy  # [not win]
 
 about:
