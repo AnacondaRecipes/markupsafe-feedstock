@@ -33,6 +33,10 @@ test:
     - pip
   commands:
     - pip check
+  downstreams:
+    - jinja2
+    # CI issues with testing downstream package astropy
+    - astropy  # [not win]
 
 about:
   home: https://www.palletsprojects.com/p/markupsafe
