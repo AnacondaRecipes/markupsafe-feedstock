@@ -1,7 +1,8 @@
+{% set name = "markupsafe" %}
 {% set version = "2.1.3" %}
 
 package:
-  name: markupsafe
+  name: {{ name }}
   version: {{ version }}
 
 source:
