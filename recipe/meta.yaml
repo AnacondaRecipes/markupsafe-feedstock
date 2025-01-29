@@ -56,7 +56,6 @@ about:
       injection attacks, meaning untrusted user input can safely be displayed
       on a page.
   doc_url: https://markupsafe.palletsprojects.com/
-  doc_source_url: https://github.com/pallets/markupsafe/blob/master/README.rst
   dev_url: https://github.com/pallets/markupsafe
 
 extra:
