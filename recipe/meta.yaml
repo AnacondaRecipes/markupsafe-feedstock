@@ -42,6 +42,10 @@ test:
     # CI issues with testing downstream package astropy
     - jinja2  # [not win]
     - astropy  # [not win]
+    - pycaret
+    - moto
+    - werkzeug
+    - nbconvert
 
 about:
   home: https://www.palletsprojects.com/p/markupsafe
