@@ -42,7 +42,7 @@ test:
     # CI issues with testing downstream package astropy
     - jinja2  # [not win]
     - astropy  # [not win]
-    - pycaret
+    - pycaret  # [not win]
     - moto
     - werkzeug
     - nbconvert
