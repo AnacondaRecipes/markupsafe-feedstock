@@ -42,10 +42,10 @@ test:
     # CI issues with testing downstream package astropy
     - jinja2  # [not win]
     - astropy  # [not win]
-    - pycaret  # [not win]
-    - moto
+    - pycaret  # [not (win or s390x)]
+    - moto  # [not s390x]
     - werkzeug
-    - nbconvert
+    - nbconvert  # [not (s390x and py>=312)]
 
 about:
   home: https://www.palletsprojects.com/p/markupsafe
