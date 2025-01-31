@@ -38,12 +38,12 @@ test:
   commands:
     - pip check
     - pytest tests
-  downstreams:  # [not win]
+  downstreams:
     # CI issues with testing downstream package astropy
     - jinja2  # [not win]
     - astropy  # [not win]
     - pycaret  # [not win]
-    - moto  # [not win]
+    - moto
     - werkzeug
     - nbconvert
 
