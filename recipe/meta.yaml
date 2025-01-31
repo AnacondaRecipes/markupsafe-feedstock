@@ -43,7 +43,7 @@ test:
     - jinja2  # [not win]
     - astropy  # [not win]
     - pycaret  # [not win]
-    - moto
+    - moto  # [not win]
     - werkzeug
     - nbconvert
 
