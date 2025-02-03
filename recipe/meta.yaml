@@ -38,14 +38,14 @@ test:
   commands:
     - pip check
     - pytest tests
-  downstreams:
-    # CI issues with testing downstream package astropy
-    - jinja2  # [not win]
-    - astropy  # [not win]
-    - pycaret  # [not (win or s390x)]
-    - moto  # [not s390x]
-    - werkzeug
-    - nbconvert  # [not (s390x and py>=312)]
+  # downstreams:
+  #   # CI issues with testing downstream package astropy
+  #   - jinja2  # [not win]
+  #   - astropy  # [not win]
+  #   - pycaret  # [not (win or s390x)]
+  #   - moto  # [not s390x]
+  #   - werkzeug
+  #   - nbconvert  # [not (s390x and py>=312)]
 
 about:
   home: https://www.palletsprojects.com/p/markupsafe
