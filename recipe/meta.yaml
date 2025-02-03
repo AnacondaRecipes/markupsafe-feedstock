@@ -1,17 +1,17 @@
 {% set name = "markupsafe" %}
-{% set version = "2.1.3" %}
+{% set version = "3.0.2" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/MarkupSafe-{{ version }}.tar.gz
-  sha256: af598ed32d6ae86f1b747b82783958b1a4ab8f617b06fe68795c7f026abbdcad
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: ee55d3edf80167e48ea11a923c7386f4669df67d7994554387f84e7d8b0a2bf0
 
 build:
-  number: 1
-  skip: true  # [py<37]
+  number: 0
+  skip: true  # [py<39]
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
 
 requirements:
@@ -20,7 +20,7 @@ requirements:
   host:
     - python
     - pip
-    - setuptools
+    - setuptools >=70.1
     - wheel
   run:
     - python
@@ -28,22 +28,30 @@ requirements:
     - jinja2 >=3.0.0
 
 test:
+  source_files:
+    - tests
   imports:
     - markupsafe
   requires:
     - pip
+    - pytest
   commands:
     - pip check
-  downstreams:  # [not win]
-    # CI issues with testing downstream package astropy
-    - jinja2  # [not win]
-    - astropy  # [not win]
+    - pytest tests
+  # downstreams:
+  #   # CI issues with testing downstream package astropy
+  #   - jinja2  # [not win]
+  #   - astropy  # [not win]
+  #   - pycaret  # [not (win or s390x)]
+  #   - moto  # [not s390x]
+  #   - werkzeug
+  #   - nbconvert  # [not (s390x and py>=312)]
 
 about:
   home: https://www.palletsprojects.com/p/markupsafe
   license: BSD-3-Clause
   license_family: BSD
-  license_file: LICENSE.rst
+  license_file: LICENSE.txt
   summary: Safely add untrusted strings to HTML/XML markup.
   description: |
       MarkupSafe implements a text object that escapes characters so it is
@@ -52,7 +60,6 @@ about:
       injection attacks, meaning untrusted user input can safely be displayed
       on a page.
   doc_url: https://markupsafe.palletsprojects.com/
-  doc_source_url: https://github.com/pallets/markupsafe/blob/master/README.rst
   dev_url: https://github.com/pallets/markupsafe
 
 extra:
