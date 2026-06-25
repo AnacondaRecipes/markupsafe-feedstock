@@ -16,6 +16,7 @@ build:
 
 requirements:
   build:
+    - {{ stdlib('c') }}
     - {{ compiler('c') }}
   host:
     - python
@@ -48,7 +49,7 @@ test:
   #   - nbconvert  # [not (s390x and py>=312)]
 
 about:
-  home: https://www.palletsprojects.com/p/markupsafe
+  home: https://www.palletsprojects.com/projects/markupsafe
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE.txt
@@ -59,7 +60,7 @@ about:
     replaced so that they display as the actual characters. This mitigates
     injection attacks, meaning untrusted user input can safely be displayed
     on a page.
-  doc_url: https://markupsafe.palletsprojects.com/
+  doc_url: https://markupsafe.palletsprojects.com/en/stable/
   dev_url: https://github.com/pallets/markupsafe
 
 extra:
