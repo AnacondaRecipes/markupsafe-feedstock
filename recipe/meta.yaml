@@ -1,13 +1,13 @@
 {% set name = "markupsafe" %}
-{% set version = "3.0.2" %}
+{% set version = "3.0.3" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: ee55d3edf80167e48ea11a923c7386f4669df67d7994554387f84e7d8b0a2bf0
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698
 
 build:
   number: 0
@@ -16,6 +16,7 @@ build:
 
 requirements:
   build:
+    - {{ stdlib('c') }}
     - {{ compiler('c') }}
   host:
     - python
@@ -48,18 +49,18 @@ test:
   #   - nbconvert  # [not (s390x and py>=312)]
 
 about:
-  home: https://www.palletsprojects.com/p/markupsafe
+  home: https://www.palletsprojects.com/projects/markupsafe
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE.txt
   summary: Safely add untrusted strings to HTML/XML markup.
   description: |
-      MarkupSafe implements a text object that escapes characters so it is
-      safe to use in HTML and XML. Characters that have special meanings are
-      replaced so that they display as the actual characters. This mitigates
-      injection attacks, meaning untrusted user input can safely be displayed
-      on a page.
-  doc_url: https://markupsafe.palletsprojects.com/
+    MarkupSafe implements a text object that escapes characters so it is
+    safe to use in HTML and XML. Characters that have special meanings are
+    replaced so that they display as the actual characters. This mitigates
+    injection attacks, meaning untrusted user input can safely be displayed
+    on a page.
+  doc_url: https://markupsafe.palletsprojects.com/en/stable/
   dev_url: https://github.com/pallets/markupsafe
 
 extra:
